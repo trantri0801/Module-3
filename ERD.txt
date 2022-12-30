@@ -1,0 +1,44 @@
+CREATE SCHEMA  erd  ;
+CREATE TABLE  erd . phieu_xuat  (
+   so_phieu_xuat  INT NOT NULL,
+   ngay_xuat  DATE NULL,
+  PRIMARY KEY ( so_phieu_xuat ));
+CREATE TABLE  erd . vat_tu  (
+   ma_vat_tu  INT NOT NULL,
+   ten_vat_tu  VARCHAR(45) NULL,
+  PRIMARY KEY ( ma_vat_tu ));
+CREATE TABLE  erd . phieu_nhap  (
+   so_phieu_nhap  INT NOT NULL,
+   ngay_nhap  DATE NULL,
+  PRIMARY KEY ( so_phieu_nhap ));
+CREATE TABLE  erd . don_dat_hang  (
+   so_don_hang  INT NOT NULL,
+   ngay_dat_hang  VARCHAR(45) NULL,
+   ma_nha_cung_cap  VARCHAR(45) NOT NULL,
+  PRIMARY KEY ( so_don_hang ));
+CREATE TABLE  erd . nha_cung_cap  (
+   ma_nha_cung_cap  INT NOT NULL,
+   ten_nha_cung_cap  VARCHAR(45) NULL,
+   dia_chi  VARCHAR(45) NULL,
+   sdt_ncc  VARCHAR(45) NULL,
+  PRIMARY KEY ( ma_nha_cung_cap ));
+CREATE TABLE  erd . sdt_ncc  (
+   sdt  INT NOT NULL,
+   ma_nha_cung_cap  VARCHAR(45) NULL,
+  PRIMARY KEY ( sdt ));
+CREATE TABLE  erd . phieu_xuat_vat_tu  (
+   ma_vat_tu  INT NOT NULL,
+   so_phieu_xuat  VARCHAR(45) NOT NULL,
+   don_gia_xuat  VARCHAR(45) NULL,
+   so_luong_xuat  VARCHAR(45) NULL,
+  PRIMARY KEY ( ma_vat_tu ,  so_phieu_xuat ));
+CREATE TABLE  erd . phieu_nhap_vat_tu  (
+   ma_vat_tu  INT NOT NULL,
+   so_phieu_nhap  VARCHAR(45) NOT NULL,
+   don_gia_nhap  VARCHAR(45) NULL,
+   so_luong_nhap  VARCHAR(45) NULL,
+  PRIMARY KEY ( ma_vat_tu ,  so_phieu_nhap ));
+CREATE TABLE  erd . don_dat_hang_vat_tu  (
+   ma_vat_tu  INT NOT NULL,
+   so_don_hang  VARCHAR(45) NOT NULL,
+  PRIMARY KEY ( ma_vat_tu ,  so_don_hang ));
